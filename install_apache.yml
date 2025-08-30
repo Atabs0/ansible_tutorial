@@ -9,8 +9,25 @@
     apt:
       name: apache2
       state: latest
+    #when: ansible_distribution == "Ubuntu" or
+   #when: ansible_distribution in ["Debian", "Ubuntu"] 
 
   - name: add php support for apache
     apt:
       name: libapache2-mod-php
       state: latest
+   #when: ansible_distribution == "Ubuntu"
+
+
+- name: install apache2 package
+    dnf:
+      name: httpd
+      state: latest
+    #when: ansible_distribution == "Centos" or
+   #when: ansible_distribution in ["Debian", "Ubuntu"] 
+
+  - name: add php support for apache
+    dnf:
+      name: php
+      state: latest
+   #when: ansible_distribution == "Centos"
